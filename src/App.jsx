@@ -24,6 +24,18 @@ function App() {
         }
         e.preventDefault();
         console.log(post);
+
+        const requestOptions = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(post),
+        };
+        fetch(
+            "https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts",
+            requestOptions
+        )
+            .then((res) => res.json())
+            .then((data) => alert("Post inviato con successo!"));
     };
 
     return (
